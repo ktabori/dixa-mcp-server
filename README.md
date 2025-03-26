@@ -33,7 +33,7 @@ To use this server with Claude:
 2. In Claude, go to Settings > Developer > Edit Config
 3. Add the following configuration
 
-´´´
+```json
 {
   "mcpServers": {
     "dixa-mcp-server": {
@@ -48,7 +48,7 @@ To use this server with Claude:
     }
   }
 }
-´´´
+```
 
 ## Server-Sent Events (SSE)
 
