@@ -738,12 +738,12 @@ server.addTool({
         _type: z.string().describe("The type of period (e.g., 'PreviousWeek')")
       }),
       _type: z.string().describe("The type of filter (e.g., 'Preset')")
-    }).describe("The period filter configuration"),
+    }).describe("The period filter configuration (required)"),
     filters: z.array(z.object({
       attribute: z.string().describe("The attribute to filter by (e.g., 'initial_direction')"),
       values: z.array(z.string()).describe("Array of values to filter by")
     })).optional().describe("Array of filters to apply"),
-    timezone: z.string().describe("The timezone to use for the data (e.g., 'Europe/Copenhagen')"),
+    timezone: z.string().describe("The timezone to use for the data (e.g., 'Europe/Copenhagen') (required)"),
     pageKey: z.string().optional().describe("Pagination key for next page of results"),
     pageLimit: z.number().optional().default(50).describe("Number of results per page (default: 50)"),
   }),
@@ -795,7 +795,7 @@ server.addTool({
 
 server.addTool({
   name: "getAnalyticsMetricsData",
-  description: "Call listAnalyticsMetrics before calling this endpoint to get the available metrics.  Get analytics data for a specific metric with filters, period settings, and aggregations. This endpoint allows you to query analytics metrics data with custom filters, period settings, aggregations, and timezone.",
+  description: "Call listAnalyticsMetrics before calling this endpoint to get the available metrics. Get analytics data for a specific metric with filters, period settings, and aggregations. This endpoint allows you to query analytics metrics data with custom filters, period settings, aggregations, and timezone.",
   parameters: z.object({
     metricId: z.string().describe("The ID of the metric to fetch data for (e.g., 'closed_conversations')"),
     periodFilter: z.object({
@@ -803,13 +803,13 @@ server.addTool({
         _type: z.string().describe("The type of period (e.g., 'PreviousWeek')")
       }),
       _type: z.string().describe("The type of filter (e.g., 'Preset')")
-    }).describe("The period filter configuration"),
+    }).describe("The period filter configuration (required)"),
     filters: z.array(z.object({
       attribute: z.string().describe("The attribute to filter by (e.g., 'channel')"),
       values: z.array(z.string()).describe("Array of values to filter by")
     })).optional().describe("Array of filters to apply"),
     aggregations: z.array(z.string()).describe("Array of aggregations to apply (e.g., ['Count'])"),
-    timezone: z.string().describe("The timezone to use for the data (e.g., 'Europe/Copenhagen')"),
+    timezone: z.string().describe("The timezone to use for the data (e.g., 'Europe/Copenhagen') (required)"),
     pageKey: z.string().optional().describe("Pagination key for next page of results"),
     pageLimit: z.number().optional().default(50).describe("Number of results per page (default: 50)"),
   }),
