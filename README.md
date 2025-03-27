@@ -9,6 +9,7 @@ To run the server, you need to:
 1. Install dependencies:
 ```bash
 npm install
+npm install fastmcp
 ```
 
 2. Set up your environment variables:
@@ -22,7 +23,11 @@ DIXA_API_KEY=your_api_key_here
 
 3. Start the server:
 ```bash
-npm start
+# Test the addition server example using CLI:
+npx fastmcp dev src/tools/index.ts
+
+# Test the addition server example using MCP Inspector:
+npx fastmcp inspect src/tools/index.ts
 ```
 
 ## Setting up in Claude
