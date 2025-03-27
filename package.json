@@ -69,13 +69,13 @@
   },
   "tsup": {
     "entry": [
-      "src/FastMCP.ts",
-      "src/bin/fastmcp.ts"
+      "src/tools/index.ts",
+      "src/tools/**/*"
     ],
     "format": [
       "esm"
     ],
-    "dts": true,
+    "dts": false,
     "splitting": true,
     "sourcemap": true,
     "clean": true
